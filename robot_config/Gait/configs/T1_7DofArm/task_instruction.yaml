@@ -1,0 +1,81 @@
+task_instruction:
+  back_board_button_custom: 
+    - button_key: "F1"
+      command_key: "ToDampingMode"
+  
+  commands:
+    - id: "0"
+      key: "ToPrepareMode"
+    - id: "1"
+      key: "ToDampingMode"
+    - id: "2"
+      key: "ToBoosterAgentMode"
+    - id: "5"
+      key: "MoveHeadUp"
+    - id: "6"
+      key: "MoveHeadRight"
+    - id: "7"
+      key: "MoveHeadDown"
+    - id: "8"
+      key: "MoveHeadLeft"
+    - id: "9"
+      key: "MoveHeadRightUp"
+    - id: "10"
+      key: "MoveHeadRightDown"
+    - id: "11"
+      key: "MoveHeadLeftUp"
+    - id: "12"
+      key: "MoveHeadLeftDown"
+    - id: "15"
+      key: "OpenHand"
+    - id: "16"
+      key: "CloseHand"
+    - id: "17"
+      key: "ZeroTorqueDrag"
+    - id: "18"
+      key: "RecordDragTraj"
+    - id: "19"
+      key: "RunRecordTraj"
+
+  modes:
+    DampingMode:
+      enter_button: 
+        - key_combination: ["LT", "BACK"]
+          command_key: "ToDampingMode"
+      buttons:
+    PrepareMode:
+      enter_button: 
+        - key_combination: ["LT", "START"]
+          command_key: "ToPrepareMode"
+      buttons:
+    BoosterAgentMode:
+      enter_button: 
+        - key_combination: ["LT", "RT", "A"]
+          command_key: "ToBoosterAgentMode"
+      buttons:
+        - key_combination: ["HAT_UP"]
+          command_key: "MoveHeadUp"
+        - key_combination: ["HAT_RIGHT"]
+          command_key: "MoveHeadRight"
+        - key_combination: ["HAT_DOWN"]
+          command_key: "MoveHeadDown"
+        - key_combination: ["HAT_LEFT"]
+          command_key: "MoveHeadLeft"
+        - key_combination: ["HAT_RIGHTUP"]
+          command_key: "MoveHeadRightUp"
+        - key_combination: ["HAT_RIGHTDOWN"]
+          command_key: "MoveHeadRightDown" 
+        - key_combination: ["HAT_LEFTUP"]
+          command_key: "MoveHeadLeftUp" 
+        - key_combination: ["HAT_LEFTDOWN"]
+          command_key: "MoveHeadLeftDown"
+        - key_combination: ["RB", "X"]
+          command_key: "OpenHand"
+        - key_combination: ["RB", "Y"]
+          command_key: "CloseHand"
+        - key_combination: ["RB", "B"]
+          command_key: "ZeroTorqueDrag"
+        - key_combination: ["LB", "X"]
+          command_key: "RecordDragTraj"
+        - key_combination: ["LB", "Y"]
+          command_key: "RunRecordTraj"

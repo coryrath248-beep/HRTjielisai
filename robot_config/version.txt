@@ -1,0 +1,25 @@
+------------------
+Version: v1.2.1.6-release
+Branch: release/v1.2.0-20250707
+Commit ID: 117f4d84d6f7268b941bdd203b6d80a65f819bb0
+Install time: 2025年 09月 16日 星期二 12:02:14 CST
+------------------
+Version: v1.6.1.1-release-01967-2026-04-27
+Branch: ci-build-release-1-6-2026-03-11.yj530.2026-04-27
+Commit ID: 9fc5dacc20715067012399e6734339a9f85a5bca
+Install time: 2026年 05月 19日 星期二 01:03:56 CST
+------------------
+Version: v1.2.1.6-release
+Branch: release/v1.2.0-20250707
+Commit ID: 117f4d84d6f7268b941bdd203b6d80a65f819bb0
+Install time: 2026年 05月 20日 星期三 16:25:40 CST
+------------------
+Version: v1.2.1.6-release
+Branch: release/v1.2.0-20250707
+Commit ID: 117f4d84d6f7268b941bdd203b6d80a65f819bb0
+Install time: 2026年 05月 20日 星期三 16:28:47 CST
+------------------
+Version: v1.6.2.2-release-02145-2026-06-03
+Branch: ci-build-release-1-6-2026-03-11.yj530.2026-06-03
+Commit ID: 53aa50dc2740c0db5060e40265be0748e0a9ce6a
+Install time: 2026年 06月 14日 星期日 19:41:53 CST

@@ -1,0 +1,89 @@
+[INFO] [launch]: All log files can be found below /home/booster/.ros/log/2026-09-13-21-55-17-087955-robot-76627
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [vision_node-1]: process started with pid [76655]
+[vision_node-1] Warning: Configuration file empty!
+[vision_node-1] loaded file: 
+[vision_node-1] camera:
+[vision_node-1]   type: orbbec
+[vision_node-1]   intrin:
+[vision_node-1]     fx: 643.898
+[vision_node-1]     fy: 643.216
+[vision_node-1]     cx: 649.038
+[vision_node-1]     cy: 357.21
+[vision_node-1]     distortion_coeffs: [-0.0553056, 0.065975, -0.000994232, 2.98548e-05, -0.0216579]
+[vision_node-1]     distortion_model: 1
+[vision_node-1]   extrin:
+[vision_node-1]     - [0.05659255, 0.03014561, 0.99794215, 0.04217854]
+[vision_node-1]     - [-0.99839673, 0.00283376, 0.05653273, 0.01405556]
+[vision_node-1]     - [-0.00112372, -0.9995415, 0.03025765, -0.01538294]
+[vision_node-1]     - [0., 0., 0., 1.]
+[vision_node-1]   pitch_compensation: 0.0
+[vision_node-1]   yaw_compensation: 0.0
+[vision_node-1]   z_compensation: 0.0
+[vision_node-1] detection_model:
+[vision_node-1]   model_path: ./src/vision/model/best_orin_10.3.engine
+[vision_node-1]   confidence_threshold: 0.2
+[vision_node-1]   nms_threshold: 0.4
+[vision_node-1]   classnames: [Ball, Goalpost, Person, LCross, TCross, XCross, PenaltyPoint, Opponent, BRMarker]
+[vision_node-1]   post_process:
+[vision_node-1]     single_ball_assumption: true
+[vision_node-1]     confidence_thresholds:
+[vision_node-1]       Ball: 0.4
+[vision_node-1]       Goalpost: 0.4
+[vision_node-1]       Person: 0.4
+[vision_node-1]       LCross: 0.3
+[vision_node-1]       TCross: 0.3
+[vision_node-1]       XCross: 0.3
+[vision_node-1]       PenaltyPoint: 0.3
+[vision_node-1]       Opponent: 0.4
+[vision_node-1]       BRMarker: 0.2
+[vision_node-1] segmentation_model:
+[vision_node-1]   model_path: ./src/vision/model/best_seg_orin_10.3.engine
+[vision_node-1]   confidence_threshold: 0.3
+[vision_node-1]   nms_threshold: 0.9
+[vision_node-1] use_depth: true
+[vision_node-1] ball_pose_estimator:
+[vision_node-1]   use_depth: false
+[vision_node-1]   radius: 0.109
+[vision_node-1]   down_sample_leaf_size: 0.01
+[vision_node-1]   cluster_distance_threshold: 0.01
+[vision_node-1]   fitting_distance_threshold: 0.01
+[vision_node-1]   minimum_cluster_size: 150
+[vision_node-1]   filter_distance: 1.2
+[vision_node-1]   check_ball_height: true
+[vision_node-1] human_like_pose_estimator:
+[vision_node-1]   use_depth: false
+[vision_node-1]   down_sample_leaf_size: 0.01
+[vision_node-1]   fitting_distance_threshold: 0.01
+[vision_node-1]   statistic_outlier_multiplier: 0.01
+[vision_node-1] field_marker_pose_estimator:
+[vision_node-1]   refine: false
+[vision_node-1]   line_segment_area_threshold: 75
+[vision_node-1] calibration:
+[vision_node-1]   offset:
+[vision_node-1]     exclude_distance: 2.0
+[vision_node-1]     zero_translation: true
+[vision_node-1]     field_marker_path: ./src/vision/config/field.yaml
+[vision_node-1] misc:
+[vision_node-1]   save_data_nonstationary: true
+[vision_node-1] offline_mode: 0
+[vision_node-1] show_det: 0
+[vision_node-1] show_seg: 0
+[vision_node-1] save_data: 1
+[vision_node-1] save_depth: 1
+[vision_node-1] save_fps: 2
+[vision_node-1] save_every_n_frame: 15
+[vision_node-1] [W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[vision_node-1] [09/13/2026-21:55:18] model input dims: 1 3 640 640
+[vision_node-1] model output dims: 1 13 8400
+[vision_node-1] det model initialization, done!
+[vision_node-1] [W] [TRT] Using an engine plan file across different models of devices is not recommended and is likely to affect performance or even cause errors.
+[vision_node-1] [09/13/2026-21:55:19] model input dims: 1 3 640 640
+[vision_node-1] model detection output dims: 1 38 8400
+[vision_node-1] model mask output dims: 1 32 160
+[vision_node-1] seg model initialization, done!
+[vision_node-1] creating log directory: /home/booster/Workspace/vision_log/2026-09-13-21-55-19
+[vision_node-1] filter_distance: 1.2
+[vision_node-1] current camera_type : orbbec
+[vision_node-1] create sub for segmentor
+[ERROR] [vision_node-1]: process has died [pid 76655, exit code -9, cmd '/home/booster/Workspace/Booster_T1_3v3/install/vision/lib/vision/vision_node /home/booster/Workspace/Booster_T1_3v3/install/vision/share/vision/launch/../config/vision.yaml /home/booster/Workspace/Booster_T1_3v3/install/vision/share/vision/launch/../config/vision_local.yaml --ros-args -r __node:=vision_node --params-file /tmp/launch_params_z2zs7tob'].

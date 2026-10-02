@@ -1,0 +1,7 @@
+Name: Booster T1
+Model: Booster T1
+Delivery Time: 2025-08-25
+Nickname: Booster T1 401
+Model Version: 2.3.4
+SN: 02012025080088
+Edition: T1 Standard

@@ -1,0 +1,196 @@
+task_instruction:
+  back_board_button_custom: 
+    - button_key: "F1"
+      command_key: "ToDampingMode"
+  
+  commands:
+    - id: "0"
+      key: "ToPrepareMode"
+    - id: "1"
+      key: "ToDampingMode"
+    - id: "2"
+      key: "ToBoosterAgentMode"
+    - id: "3"
+      key: "WaveHand"
+    - id: "4"
+      key: "ShakeHand"
+    - id: "5"
+      key: "MoveHeadUp"
+    - id: "6"
+      key: "MoveHeadRight"
+    - id: "7"
+      key: "MoveHeadDown"
+    - id: "8"
+      key: "MoveHeadLeft"
+    - id: "9"
+      key: "MoveHeadRightUp"
+    - id: "10"
+      key: "MoveHeadRightDown"
+    - id: "11"
+      key: "MoveHeadLeftUp"
+    - id: "12"
+      key: "MoveHeadLeftDown"
+    - id: "13"
+      key: "FallDownRecovery"
+    - id: "14"
+      key: "PushUp"
+    - id: "15"
+      key: "OpenHand"
+    - id: "16"
+      key: "CloseHand"
+    - id: "17"
+      key: "ZeroTorqueDrag"
+    - id: "18"
+      key: "RecordDragTraj"
+    - id: "19"
+      key: "RunRecordTraj"
+    - id: "20"
+      key: "NewYearDance"
+    - id: "21"
+      key: "Boxing"
+    - id: "22"
+      key: "DanceRockAndRoll"
+    - id: "23"
+      key: "DanceTowardsFuture"
+    - id: "24"
+      key: "GestureManekiNeko"
+    - id: "25"
+      key: "GesturePogba"
+    - id: "26"
+      key: "GestureUltraman"
+    - id: "27"
+      key: "GestureChineseGreet"
+    - id: "28"
+      key: "GestureCheer"
+    - id: "29"
+      key: "LieDown"
+    - id: "30"
+      key: "Dance"
+    - id: "31"
+      key: "ToRobocupMode"
+    - id: "32"
+      key: "FancyKick"
+    - id: "33"
+      key: "RMAGoalieCrouch"
+    - id: "34"
+      key: "RMAGoalieGetup"
+    - id: "35"
+      key: "StandKickBall"
+    - id: "36"
+      key: "ResetOdom"
+
+  modes:
+    DampingMode:
+      enter_button:
+        - key_combination: ["LT", "BACK"]
+          command_key: "ToDampingMode"
+      buttons:
+        - key_combination: ["RB","HAT_UP"]
+          command_key: "FallDownRecovery"  
+    PrepareMode:
+      enter_button:
+        - key_combination: ["LT", "START"]
+          command_key: "ToPrepareMode"
+      buttons:
+        - key_combination: ["RB","HAT_UP"]
+          command_key: "FallDownRecovery"
+        - key_combination: ["RB", "B"]
+          command_key: "ResetOdom"
+
+    BoosterAgentMode:
+      enter_button:
+        - key_combination: ["LT", "RT", "A"]
+          command_key: "ToBoosterAgentMode"
+      buttons:
+        - key_combination: ["B"]
+          command_key: "WaveHand"
+        - key_combination: ["A"]
+          command_key: "ShakeHand"
+        - key_combination: ["HAT_UP"]
+          command_key: "MoveHeadUp"
+        - key_combination: ["HAT_RIGHT"]
+          command_key: "MoveHeadRight"
+        - key_combination: ["HAT_DOWN"]
+          command_key: "MoveHeadDown"
+        - key_combination: ["HAT_LEFT"]
+          command_key: "MoveHeadLeft"
+        - key_combination: ["HAT_RIGHTUP"]
+          command_key: "MoveHeadRightUp"
+        - key_combination: ["HAT_RIGHTDOWN"]
+          command_key: "MoveHeadRightDown" 
+        - key_combination: ["HAT_LEFTUP"]
+          command_key: "MoveHeadLeftUp" 
+        - key_combination: ["HAT_LEFTDOWN"]
+          command_key: "MoveHeadLeftDown"
+        - key_combination: ["RB", "X"]
+          command_key: "OpenHand"
+        - key_combination: ["RB", "Y"]
+          command_key: "CloseHand"
+        - key_combination: ["RB", "B"]
+          command_key: "ZeroTorqueDrag"
+        # - key_combination: ["LB", "X"]
+        #   command_key: "RecordDragTraj"
+        # - key_combination: ["LB", "Y"]
+        #   command_key: "RunRecordTraj"
+        - key_combination: ["LB", "A"]
+          command_key: "NewYearDance"
+        - key_combination: ["LB", "HAT_LEFT"]
+          command_key: "DanceRockAndRoll"
+        - key_combination: ["LB", "HAT_RIGHT"]
+          command_key: "DanceTowardsFuture"
+        - key_combination: ["LB", "HAT_DOWN"]
+          command_key: "GestureManekiNeko"
+        - key_combination: ["LB", "B"]
+          command_key: "GesturePogba"
+        - key_combination: ["LB", "X"]
+          command_key: "GestureUltraman"
+        - key_combination: ["LB", "Y"]
+          command_key: "GestureChineseGreet"
+        - key_combination: ["LB", "HAT_UP"]
+          command_key: "GestureCheer"
+        - key_combination: ["RB","A"]
+          command_key: "Boxing"
+        - key_combination: ["LT", "HAT_LEFT"]
+          command_key: "PushUp"
+        - key_combination: ["LT", "HAT_DOWN"]
+          command_key: "LieDown"
+        - key_combination: ["RB","HAT_UP"]
+          command_key: "FallDownRecovery"
+        - key_combination: ["LT", "HAT_UP"]
+          command_key: "FancyKick"
+    RobocupMode:
+      enter_button:
+        - key_combination: ["LT", "RT", "B"]
+          command_key: "ToRobocupMode"
+      buttons:
+        - key_combination: ["B"]
+          command_key: "WaveHand"
+        - key_combination: ["A"]
+          command_key: "ShakeHand"
+        - key_combination: ["LB", "A"]
+          command_key: "FancyKick"
+        - key_combination: ["LT", "Y"]
+          command_key: "RMAGoalieCrouch"
+        - key_combination: ["LT", "B"]
+          command_key: "RMAGoalieGetup"
+        - key_combination: ["LB", "X"]
+          command_key: "StandKickBall"
+        - key_combination: ["HAT_UP"]
+          command_key: "MoveHeadUp"
+        - key_combination: ["HAT_RIGHT"]
+          command_key: "MoveHeadRight"
+        - key_combination: ["HAT_DOWN"]
+          command_key: "MoveHeadDown"
+        - key_combination: ["HAT_LEFT"]
+          command_key: "MoveHeadLeft"
+        - key_combination: ["HAT_RIGHTUP"]
+          command_key: "MoveHeadRightUp"
+        - key_combination: ["HAT_RIGHTDOWN"]
+          command_key: "MoveHeadRightDown" 
+        - key_combination: ["HAT_LEFTUP"]
+          command_key: "MoveHeadLeftUp" 
+        - key_combination: ["HAT_LEFTDOWN"]
+          command_key: "MoveHeadLeftDown"
+        - key_combination: ["LB", "Y"]
+          command_key: "GestureChineseGreet"
+

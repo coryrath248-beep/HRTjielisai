@@ -1,0 +1,266 @@
+task_instruction:
+  back_board_button_custom: 
+    - button_key: "F1"
+      command_key: "ToDampingMode"
+  
+  commands:
+    - id: "0"
+      key: "ToPrepareMode"
+    - id: "1"
+      key: "ToDampingMode"
+    - id: "2"
+      key: "ToBoosterAgentMode"
+    - id: "3"
+      key: "WaveHand"
+    - id: "4"
+      key: "ShakeHand"
+    - id: "5"
+      key: "MoveHeadUp"
+    - id: "6"
+      key: "MoveHeadRight"
+    - id: "7"
+      key: "MoveHeadDown"
+    - id: "8"
+      key: "MoveHeadLeft"
+    - id: "9"
+      key: "MoveHeadRightUp"
+    - id: "10"
+      key: "MoveHeadRightDown"
+    - id: "11"
+      key: "MoveHeadLeftUp"
+    - id: "12"
+      key: "MoveHeadLeftDown"
+    - id: "13"
+      key: "FallDownRecovery"
+    - id: "15"
+      key: "OpenHand"
+    - id: "16"
+      key: "CloseHand"
+    - id: "17"
+      key: "ZeroTorqueDrag"
+    - id: "18"
+      key: "RecordDragTraj"
+    - id: "19"
+      key: "RunRecordTraj"
+    - id: "20"
+      key: "NewYearDance"
+    - id: "21"
+      key: "Boxing"
+    - id: "22"
+      key: "DanceNezha"
+    - id: "23"
+      key: "DanceTowardsFuture"
+    - id: "24"
+      key: "GestureManekiNeko"
+    - id: "25"
+      key: "GesturePogba"
+    - id: "26"
+      key: "GestureUltraman"
+    - id: "27"
+      key: "GestureChineseGreet"
+    - id: "28"
+      key: "GestureCheer"
+    - id: "30"
+      key: "Dance"
+    - id: "35"
+      key: "VisualKick"
+    - id: "36"
+      key: "ResetOdom"
+    - id: "40"
+      key: "WalkToRun"
+    - id: "41"
+      key: "RunToWalk"
+    - id: "42"
+      key: "DanceBmmE1"
+    - id: "43"
+      key: "DanceBmmE2"
+    - id: "44"
+      key: "DanceBmmE3"
+    - id: "45"
+      key: "DanceBmmE4"
+    - id: "46"
+      key: "DanceBmmE5"
+    - id: "47"
+      key: "DanceBmmE6"
+    - id: "48"
+      key: "DanceBmmE7"
+    - id: "49"
+      key: "DanceBmmE8"
+    - id: "50"
+      key: "ToWBCGaitMode"      
+    - id: "51"
+      key: "DanceBmmE9"
+    - id: "52"
+      key: "DanceBmmE10"
+    - id: "53"
+      key: "DanceBmmE11"
+    - id: "54"
+      key: "ToLionDancePrepare"
+    - id: "55"
+      key: "ToggleFixArm"
+    - id: "56"
+      key: "DanceBmmE12" 
+    - id: "57"
+      key: "DanceBmmE13" 
+    - id: "58"
+      key: "DanceBmmE14"
+    - id: "59"
+      key: "DanceBmmE15"
+    - id: "60"
+      key: "SwitchToAMPGaitBodyControl"
+    - id: "61"
+      key: "SwitchToHumanlikeGaitBodyControl"
+    - id: "62"
+      key: "ToRobocupMode"
+
+  modes:
+    DampingMode:
+      enter_button: 
+        - key_combination: ["LT", "BACK"]
+          command_key: "ToDampingMode"
+      buttons:
+        - key_combination: ["RB","HAT_UP"]
+          command_key: "FallDownRecovery"
+        - key_combination: ["LT", "RT", "X"]
+          command_key: "ToLionDancePrepare"
+        - key_combination: ["LT", "RT", "B"]
+          command_key: "ToggleFixArm"  
+    PrepareMode:
+      enter_button: 
+        - key_combination: ["LT", "START"]
+          command_key: "ToPrepareMode"
+      buttons:
+        - key_combination: ["RB","HAT_UP"]
+          command_key: "FallDownRecovery"
+        - key_combination: ["RB", "B"]
+          command_key: "ResetOdom"
+        - key_combination: ["LT", "RT", "X"]
+          command_key: "ToLionDancePrepare"
+        - key_combination: ["LT", "RT", "B"]
+          command_key: "ToggleFixArm"
+    BoosterAgentMode:
+      enter_button: 
+        - key_combination: ["LT", "RT", "A"]
+          command_key: "ToBoosterAgentMode"
+      buttons:
+        - key_combination: ["B"]
+          command_key: "WaveHand"
+        - key_combination: ["A"]
+          command_key: "ShakeHand"
+        - key_combination: ["LB", "RB", "B"]
+          command_key: "ResetOdom"
+        - key_combination: ["LB", "RB", "HAT_UP"]
+          command_key: "SwitchToAMPGaitBodyControl"
+        - key_combination: ["LB", "RB", "HAT_DOWN"]
+          command_key: "SwitchToHumanlikeGaitBodyControl"
+        - key_combination: ["HAT_UP"]
+          command_key: "MoveHeadUp"
+        - key_combination: ["HAT_RIGHT"]
+          command_key: "MoveHeadRight"
+        - key_combination: ["HAT_DOWN"]
+          command_key: "MoveHeadDown"
+        - key_combination: ["HAT_LEFT"]
+          command_key: "MoveHeadLeft"
+        - key_combination: ["HAT_RIGHTUP"]
+          command_key: "MoveHeadRightUp"
+        - key_combination: ["HAT_RIGHTDOWN"]
+          command_key: "MoveHeadRightDown" 
+        - key_combination: ["HAT_LEFTUP"]
+          command_key: "MoveHeadLeftUp" 
+        - key_combination: ["HAT_LEFTDOWN"]
+          command_key: "MoveHeadLeftDown"
+        - key_combination: ["RB", "X"]
+          command_key: "OpenHand"
+        - key_combination: ["RB", "Y"]
+          command_key: "CloseHand"
+        - key_combination: ["RB"]
+          command_key: "WalkToRun"
+        - key_combination: ["LB"]
+          command_key: "RunToWalk"
+        - key_combination: ["LT", "X"]
+          command_key: "VisualKick"
+        - key_combination: ["RB", "B"]
+          command_key: "ZeroTorqueDrag"
+        - key_combination: ["LB", "X"]
+          command_key: "RecordDragTraj"
+        - key_combination: ["LB", "Y"]
+          command_key: "RunRecordTraj"
+        - key_combination: ["LB", "A"]
+          command_key: "NewYearDance"
+        - key_combination: ["LB", "HAT_LEFT"]
+          command_key: "DanceNezha"
+        - key_combination: ["LB", "HAT_RIGHT"]
+          command_key: "DanceTowardsFuture"
+        - key_combination: ["LB", "HAT_DOWN"]
+          command_key: "GestureManekiNeko"
+        - key_combination: ["LB", "B"]
+          command_key: "GesturePogba"
+        - key_combination: ["LB", "X"]
+          command_key: "GestureUltraman"
+        - key_combination: ["LB", "Y"]
+          command_key: "GestureChineseGreet"
+        - key_combination: ["LB", "HAT_UP"]
+          command_key: "GestureCheer"
+        - key_combination: ["RB","A"]
+          command_key: "Boxing"
+        - key_combination: ["RT","Y"]
+          command_key: "DanceBmmE1"   
+        - key_combination: ["RT","B"]
+          command_key: "DanceBmmE2"  
+        - key_combination: ["RT","A"]
+          command_key: "DanceBmmE3"            
+        - key_combination: ["RT","RB","A"]
+          command_key: "DanceBmmE4"
+        - key_combination: ["LT","Y"]
+          command_key: "DanceBmmE5"
+        - key_combination: ["LT","B"]
+          command_key: "DanceBmmE6"
+        - key_combination: ["LT","A"]
+          command_key: "DanceBmmE7"
+        - key_combination: ["LT","LB","A"]
+          command_key: "DanceBmmE8"                                              
+        - key_combination: ["LT","LB","B"]
+          command_key: "DanceBmmE9"
+        - key_combination: ["LT","LB","X"]
+          command_key: "DanceBmmE10"
+        - key_combination: ["LT","LB","Y"]
+          command_key: "DanceBmmE11"
+        - key_combination: ["LT","RB","A"]
+          command_key: "DanceBmmE12"
+        - key_combination: ["LT","RB","B"]
+          command_key: "DanceBmmE13"
+        - key_combination: ["LT","RB","X"]
+          command_key: "DanceBmmE14"
+        - key_combination: ["RT","X"]
+          command_key: "DanceBmmE15"
+        - key_combination: ["LT", "RT", "X"]
+          command_key: "ToLionDancePrepare"
+        - key_combination: ["LT", "RT", "B"]
+          command_key: "ToggleFixArm"                                                                  
+    RobocupMode:
+      enter_button: 
+        - key_combination: ["LT", "RT", "X"]
+          command_key: "ToRobocupMode"
+      buttons:
+        - key_combination: ["B"]
+          command_key: "WaveHand"
+        - key_combination: ["A"]
+          command_key: "ShakeHand"
+        - key_combination: ["LB", "RB", "B"]
+          command_key: "ResetOdom"
+        - key_combination: ["HAT_UP"]
+          command_key: "MoveHeadUp"
+        - key_combination: ["HAT_RIGHT"]
+          command_key: "MoveHeadRight"
+        - key_combination: ["HAT_DOWN"]
+          command_key: "MoveHeadDown"
+        - key_combination: ["HAT_LEFT"]
+          command_key: "MoveHeadLeft"
+        - key_combination: ["HAT_RIGHTUP"]
+          command_key: "MoveHeadRightUp"
+        - key_combination: ["HAT_RIGHTDOWN"]
+          command_key: "MoveHeadRightDown" 
+        - key_combination: ["HAT_LEFTUP"]
+          command_key: "MoveHeadLeftUp" 
+        - key_combination: ["HAT_LEFTDOWN"]
+          command_key: "MoveHeadLeftDown"
