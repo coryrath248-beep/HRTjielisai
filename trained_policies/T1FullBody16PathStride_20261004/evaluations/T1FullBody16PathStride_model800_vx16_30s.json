@@ -1,0 +1,157 @@
+{
+  "task": "T1FullBody16PathStride",
+  "policy": "/home/t4/booster_t1_fullbody_20261003/booster_gym/logs/T1FullBody16PathStride_2026-10-04-03-21-43_462480/nn/model_800.pth",
+  "cases": [
+    {
+      "command_vx_vy_yaw": [
+        1.6,
+        0.0,
+        0.0
+      ],
+      "planned_s": 30.0,
+      "survived_s": 30.0,
+      "fell": false,
+      "mean_body_vx_m_s": 1.447,
+      "mean_body_vy_m_s": -0.002,
+      "mean_yaw_rate_rad_s": 0.005,
+      "lateral_drift_m": -0.156,
+      "final_yaw_rad": -0.007,
+      "minimum_base_height_m": 0.607,
+      "peak_unclipped_torque_ratio": 1.484,
+      "saturation_step_fraction": 0.146,
+      "saturation_joint_step_fraction": 0.007,
+      "urdf_joint_velocity_limit_step_fraction": 0.0,
+      "urdf_joint_velocity_80pct_step_fraction": 0.0658,
+      "urdf_joint_velocity_limit_joint_step_fraction": 0.0,
+      "peak_urdf_joint_velocity_ratio": 0.921,
+      "urdf_joint_velocity_by_joint": {
+        "AAHead_yaw": {
+          "limit_rad_s": 12.56,
+          "peak_ratio": 0.016,
+          "at_limit_fraction": 0.0
+        },
+        "Head_pitch": {
+          "limit_rad_s": 12.56,
+          "peak_ratio": 0.105,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Shoulder_Pitch": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.21,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Shoulder_Roll": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.103,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Elbow_Pitch": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.159,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Elbow_Yaw": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.233,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Shoulder_Pitch": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.301,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Shoulder_Roll": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.113,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Elbow_Pitch": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.177,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Elbow_Yaw": {
+          "limit_rad_s": 18.84,
+          "peak_ratio": 0.233,
+          "at_limit_fraction": 0.0
+        },
+        "Waist": {
+          "limit_rad_s": 10.88,
+          "peak_ratio": 0.173,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Hip_Pitch": {
+          "limit_rad_s": 12.5,
+          "peak_ratio": 0.605,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Hip_Roll": {
+          "limit_rad_s": 10.9,
+          "peak_ratio": 0.236,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Hip_Yaw": {
+          "limit_rad_s": 10.9,
+          "peak_ratio": 0.532,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Knee_Pitch": {
+          "limit_rad_s": 11.7,
+          "peak_ratio": 0.657,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Ankle_Pitch": {
+          "limit_rad_s": 18.8,
+          "peak_ratio": 0.685,
+          "at_limit_fraction": 0.0
+        },
+        "Left_Ankle_Roll": {
+          "limit_rad_s": 12.4,
+          "peak_ratio": 0.602,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Hip_Pitch": {
+          "limit_rad_s": 12.5,
+          "peak_ratio": 0.734,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Hip_Roll": {
+          "limit_rad_s": 10.9,
+          "peak_ratio": 0.197,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Hip_Yaw": {
+          "limit_rad_s": 10.9,
+          "peak_ratio": 0.332,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Knee_Pitch": {
+          "limit_rad_s": 11.7,
+          "peak_ratio": 0.921,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Ankle_Pitch": {
+          "limit_rad_s": 18.8,
+          "peak_ratio": 0.653,
+          "at_limit_fraction": 0.0
+        },
+        "Right_Ankle_Roll": {
+          "limit_rad_s": 12.4,
+          "peak_ratio": 0.689,
+          "at_limit_fraction": 0.0
+        }
+      },
+      "commanded_gait_cycle_hz": 1.8,
+      "observed_foot_cycle_hz": 1.799,
+      "observed_base_advance_per_stride_m": 0.798,
+      "observed_foot_strikes": {
+        "left": 52,
+        "right": 53
+      },
+      "mean_arm_angle_deviation_rad": 0.168,
+      "peak_waist_angle_deviation_rad": 0.153,
+      "mean_hip_pitch_deviation_rad": 0.385,
+      "mean_arm_leg_counter_swing_error_rad": 0.088
+    }
+  ]
+}
