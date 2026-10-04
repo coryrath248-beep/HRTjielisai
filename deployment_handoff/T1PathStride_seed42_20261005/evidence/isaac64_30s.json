@@ -1,0 +1,13 @@
+{
+  "task": "T1FullBody16PathStride",
+  "policy": "logs/T1FullBody16PathStride_2026-10-04-03-21-43_462480/nn/model_800.pth",
+  "command_vx": 1.6,
+  "survived_fraction": 0.969,
+  "mean_vx_second_half": 1.471,
+  "mean_vy_second_half": 0.008,
+  "mean_yaw_rate_second_half": 0.001,
+  "mean_torque_saturation_second_half": 0.272,
+  "mean_lateral_displacement_survivors": 0.09,
+  "mean_absolute_lateral_displacement_survivors": 0.142,
+  "p90_absolute_lateral_displacement_survivors": 0.297
+}
