@@ -64,8 +64,10 @@ def main():
                     "imu_rpy": list(message.imu_state.rpy),
                     "imu_gyro": list(message.imu_state.gyro),
                     "imu_acc": list(message.imu_state.acc),
-                    "serial": [{"q": m.q, "dq": m.dq, "tau_est": getattr(m, "tau_est", None)} for m in serial],
-                    "parallel": [{"q": m.q, "dq": m.dq, "tau_est": getattr(m, "tau_est", None)} for m in parallel],
+                    "serial": [{"q": m.q, "dq": m.dq, "tau_est": getattr(m, "tau_est", None),
+                                "temperature": getattr(m, "temperature", None)} for m in serial],
+                    "parallel": [{"q": m.q, "dq": m.dq, "tau_est": getattr(m, "tau_est", None),
+                                  "temperature": getattr(m, "temperature", None)} for m in parallel],
                 }
                 if remote is not None:
                     record["command"] = [remote.get_vx_cmd(), remote.get_vy_cmd(), remote.get_vyaw_cmd()]

@@ -11,11 +11,11 @@ python deployment_handoff/T1FootRoom_S43_20261006/probe.py \
   --net 127.0.0.1 --seconds 60 --output /tmp/t1_probe.jsonl
 ```
 
-脚本记录 23 路串联电机和并联电机的 `q/dq/tau_est`、IMU 与里程计 `x/y/theta`，每条都带单调时间戳。可加 `--remote` 同时记录原手柄的 `vx/vy/yaw`，此时 `--max-vx` 默认 1.6 m/s，`--max-yaw` 默认 0.5 rad/s。采集是只读的；仍须由现场人员确保机器人处于合适状态。
+脚本记录 23 路串联电机和并联电机的 `q/dq/tau_est/temperature`（以现场 SDK 实际提供的字段为准）、IMU 与里程计 `x/y/theta`，每条都带单调时间戳。可加 `--remote` 同时记录原手柄的 `vx/vy/yaw`，此时 `--max-vx` 默认 1.6 m/s，`--max-yaw` 默认 0.5 rad/s。`--remote` 只记录输入，不会用摇杆驱动机器人；整套采集均为只读。
 
 先检查输出末尾的计数：`state` 必须大于零，`bad_count/callback_error` 必须为零；`odom` 若为零，说明当前 SDK 或机器未提供可用里程计，80 维策略的直线误差项尚不能实机复现。采集文件可能包含设备状态，不要直接公开上传。
 
-`python deployment_handoff/T1FootRoom_S43_20261006/inspect_capture.py /tmp/t1_probe.jsonl` 会列出采样间隔、里程计更新、电机数量及各串联索引观测到的速度和估计力矩峰值。这些峰值是采样结果，不能直接当作额定限值。
+`python deployment_handoff/T1FootRoom_S43_20261006/inspect_capture.py /tmp/t1_probe.jsonl` 会列出采样间隔、里程计更新、电机数量及各串联索引观测到的速度、估计力矩和温度峰值。这些峰值是采样结果，不能直接当作额定限值；本 SDK 的 LowState 没有提供电池电压字段，电压需另查当前机器接口。
 
 ## 影子推理与接口核对
 
@@ -39,5 +39,7 @@ python deployment_handoff/T1FootRoom_S43_20261006/replay.py /tmp/t1_probe.jsonl 
 ## 实机动作前仍需核对
 
 SDK 的踝部串联索引是 `CrankUp/CrankDown`，训练 URDF 是 `Ankle_Pitch/Ankle_Roll`。必须确认状态换算及命令换算，不能把影子推理的训练关节目标直接送给串联电机。还需确认机器人确实为 23 自由度版本、上肢／腰低层控制可用、PD 增益和力矩限值、控制频率与延迟、急停及回退流程。所有这些依赖现场机器；本目录保留了明确的核对位置，不预填“已验证”。
+
+实际电机发布层还需要把新策略的步态相位和上次动作历史与启动姿态同步，并测量低层发布周期。影子推理从日志第一帧以相位零起算，用于核对输入和动作范围。
 
 `python -m unittest discover -s deployment_handoff/T1FootRoom_S43_20261006 -p 'test_*.py'` 可在有 PyTorch/Numpy/PyYAML 的开发机运行接口与转向切换测试。

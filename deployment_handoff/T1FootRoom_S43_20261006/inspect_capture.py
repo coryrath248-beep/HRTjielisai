@@ -20,7 +20,7 @@ def main():
     args = parser.parse_args()
     state_times, odom_times = [], []
     serial_counts, parallel_counts = set(), set()
-    peak_dq, peak_tau = [0.0] * 23, [0.0] * 23
+    peak_dq, peak_tau, peak_temp = [0.0] * 23, [None] * 23, [None] * 23
     odom_first = odom_last = None
     command_seen = False
     with args.capture.open(encoding="utf-8") as stream:
@@ -41,13 +41,17 @@ def main():
                     peak_dq[index] = max(peak_dq[index], abs(motor["dq"]))
                     tau = motor.get("tau_est")
                     if tau is not None and math.isfinite(tau):
-                        peak_tau[index] = max(peak_tau[index], abs(tau))
+                        peak_tau[index] = max(peak_tau[index] or 0.0, abs(tau))
+                    temperature = motor.get("temperature")
+                    if temperature is not None and math.isfinite(temperature):
+                        peak_temp[index] = max(peak_temp[index] or 0.0, temperature)
     report = {
         "state": gaps(state_times), "odom": gaps(odom_times),
         "serial_motor_counts": sorted(serial_counts), "parallel_motor_counts": sorted(parallel_counts),
         "command_recorded": command_seen, "odom_first": odom_first, "odom_last": odom_last,
         "peak_abs_serial_dq_by_sdk_index_rad_s": [round(v, 3) for v in peak_dq],
-        "peak_abs_serial_tau_est_by_sdk_index": [round(v, 3) for v in peak_tau],
+        "peak_abs_serial_tau_est_by_sdk_index": [round(v, 3) if v is not None else None for v in peak_tau],
+        "peak_serial_temperature_by_sdk_index": peak_temp,
     }
     print(json.dumps(report, indent=2, ensure_ascii=False))
 
