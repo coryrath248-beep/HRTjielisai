@@ -92,8 +92,12 @@ def main():
         state_sub.InitChannel()
         odom_sub = None
         if B1OdometerStateSubscriber is not None:
-            odom_sub = B1OdometerStateSubscriber(on_odom)
-            odom_sub.InitChannel()
+            try:
+                odom_sub = B1OdometerStateSubscriber(on_odom)
+                odom_sub.InitChannel()
+            except Exception as exc:
+                odom_sub = None
+                print("odometer subscription unavailable: %s" % exc, file=sys.stderr)
         print("READ ONLY: capturing %s for %.1f seconds" % (args.output, args.seconds))
         try:
             time.sleep(args.seconds)
