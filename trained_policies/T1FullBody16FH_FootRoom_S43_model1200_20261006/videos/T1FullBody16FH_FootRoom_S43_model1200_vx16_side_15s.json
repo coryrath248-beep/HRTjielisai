@@ -1,0 +1,13 @@
+{
+  "task": "T1FullBody16FH_FootRoom_S43",
+  "checkpoint": "logs/T1FullBody16FH_FootRoom_S43_2026-10-05-22-28-54_2071228/nn/model_1200.pth",
+  "command_vx_m_s": 1.6,
+  "survived_s": 15.0,
+  "mean_body_vx_m_s": 1.456,
+  "world_lateral_drift_m": 0.088,
+  "video": "videos/T1FullBody16FH_FootRoom_S43_model1200_vx16_side_15s.mp4",
+  "camera_azimuth_deg": 90.0,
+  "camera_elevation_deg": -16.0,
+  "view_label": "side",
+  "source": "MuJoCo simulation, not physical robot"
+}

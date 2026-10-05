@@ -1,0 +1,16 @@
+{
+  "task": "T1FullBody16FH_FootRoom_S43",
+  "policy": "logs/T1FullBody16FH_FootRoom_S43_2026-10-05-22-28-54_2071228/nn/model_1200.pth",
+  "command_vx": 1.6,
+  "startup_ramp_s": 0.0,
+  "evaluation_seed": 44,
+  "survived_fraction": 0.969,
+  "mean_vx_second_half": 1.545,
+  "mean_vy_second_half": 0.001,
+  "mean_yaw_rate_second_half": 0.005,
+  "mean_torque_saturation_second_half": 0.215,
+  "mean_torque_saturation_first_2s": 0.272,
+  "mean_lateral_displacement_survivors": 0.021,
+  "mean_absolute_lateral_displacement_survivors": 0.153,
+  "p90_absolute_lateral_displacement_survivors": 0.242
+}

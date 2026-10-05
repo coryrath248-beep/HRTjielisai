@@ -1,0 +1,507 @@
+basic:
+  checkpoint: logs/T1FullBody16FH_ToeTight_S43_2026-10-05-15-44-46_637405/nn/model_400.pth
+  headless: true
+  max_iterations: 1200
+  sim_device: cuda:0
+  rl_device: cuda:0
+  seed: 43
+  description: FootRoom continuation from ToeTight model400
+  actor_init: null
+  task: T1FullBody16FH_FootRoom_S43
+  fullbody_leg_actor_init: null
+  resume_model_weights_only: true
+  appended_observations_from_checkpoint: 0
+env:
+  num_envs: 4096
+  num_observations: 80
+  observe_straight_path: true
+  num_privileged_obs: 14
+  num_actions: 21
+  env_spacing: 1.0
+runner:
+  horizon_length: 24
+  mini_epochs: 20
+  save_interval: 100
+  use_wandb: false
+viewer:
+  pos:
+  - 3.0
+  - -3.0
+  - 2.0
+  lookat:
+  - 0.0
+  - 0.0
+  - 0.0
+  record_video: false
+  record_interval: 5.0
+  record_env_idx: 0
+algorithm:
+  learning_rate: 1.0e-05
+  gamma: 0.995
+  lam: 0.95
+  bound_coef: 1.0
+  entropy_coef: 0.0
+  desired_kl: 0.01
+  symmetry_actor_coef: 0.02
+  logstd_limits:
+    upper_action_count: 9
+    minimum: -3.0
+    upper_maximum: -1.1
+    leg_maximum: -0.7
+sim:
+  dt: 0.002
+  substeps: 1
+  up_axis: z
+  gravity:
+  - 0.0
+  - 0.0
+  - -9.81
+  physics_engine: physx
+  physx:
+    num_threads: 4
+    solver_type: 1
+    num_position_iterations: 4
+    num_velocity_iterations: 1
+    contact_offset: 0.02
+    rest_offset: 0.0
+    bounce_threshold_velocity: 0.2
+    max_depenetration_velocity: 100.0
+    default_buffer_size_multiplier: 5.0
+    max_gpu_contact_pairs: 8388608
+    num_subscenes: 4
+    contact_collection: 1
+asset:
+  file: resources/T1/T1_serial.urdf
+  mujoco_file: resources/T1/T1_serial.xml
+  name: T1
+  base_name: Trunk
+  foot_names:
+  - left_foot_link
+  - right_foot_link
+  disable_gravity: false
+  default_dof_drive_mode: 3
+  collapse_fixed_joints: true
+  fix_base_link: false
+  self_collisions: 0
+  replace_cylinder_with_capsule: false
+  flip_visual_attachments: false
+  density: 0.001
+  angular_damping: 0.0
+  linear_damping: 0.0
+  max_angular_velocity: 1000.0
+  max_linear_velocity: 1000.0
+  armature: 0.0
+  thickness: 0.01
+  feet_edge_pos:
+  - - 0.1215
+    - 0.05
+    - -0.03
+  - - 0.1215
+    - -0.05
+    - -0.03
+  - - -0.1015
+    - 0.05
+    - -0.03
+  - - -0.1015
+    - -0.05
+    - -0.03
+init_state:
+  pos:
+  - 0.0
+  - 0.0
+  - 0.72
+  rot:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 1.0
+  lin_vel:
+  - 0.0
+  - 0.0
+  - 0.0
+  ang_vel:
+  - 0.0
+  - 0.0
+  - 0.0
+  default_joint_angles:
+    Hip_Pitch: -0.2
+    Knee_Pitch: 0.4
+    Ankle_Pitch: -0.25
+    default: 0.0
+    Left_Shoulder_Pitch: 0.2
+    Left_Shoulder_Roll: -1.35
+    Left_Elbow_Pitch: 0.0
+    Left_Elbow_Yaw: -0.5
+    Right_Shoulder_Pitch: 0.2
+    Right_Shoulder_Roll: 1.35
+    Right_Elbow_Pitch: 0.0
+    Right_Elbow_Yaw: 0.5
+    Waist: 0.0
+control:
+  stiffness:
+    Head: 20.0
+    Shoulder: 20.0
+    Elbow: 20.0
+    Waist: 200.0
+    Hip: 200.0
+    Knee: 200.0
+    Ankle: 50.0
+  damping:
+    Head: 0.2
+    Shoulder: 0.5
+    Elbow: 0.5
+    Waist: 5.0
+    Hip: 5.0
+    Knee: 5.0
+    Ankle: 1.0
+  action_scale: 1.0
+  decimation: 10
+  action_joint_names:
+  - Left_Shoulder_Pitch
+  - Left_Shoulder_Roll
+  - Left_Elbow_Pitch
+  - Left_Elbow_Yaw
+  - Right_Shoulder_Pitch
+  - Right_Shoulder_Roll
+  - Right_Elbow_Pitch
+  - Right_Elbow_Yaw
+  - Waist
+  - Left_Hip_Pitch
+  - Left_Hip_Roll
+  - Left_Hip_Yaw
+  - Left_Knee_Pitch
+  - Left_Ankle_Pitch
+  - Left_Ankle_Roll
+  - Right_Hip_Pitch
+  - Right_Hip_Roll
+  - Right_Hip_Yaw
+  - Right_Knee_Pitch
+  - Right_Ankle_Pitch
+  - Right_Ankle_Roll
+  action_scales:
+  - 0.35
+  - 0.35
+  - 0.35
+  - 0.35
+  - 0.35
+  - 0.35
+  - 0.35
+  - 0.35
+  - 0.25
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  upper_action_clip: 1.0
+  zero_upper_actions: false
+terrain:
+  type: trimesh
+  static_friction: 1.0
+  dynamic_friction: 1.0
+  restitution: 0.0
+  terrain_length: 10.0
+  terrain_width: 10.0
+  border_size: 5.0
+  num_terrains: 8
+  terrain_proportions:
+  - 0.0
+  - 0.0
+  - 0.5
+  - 0.5
+  slope: 0.1
+  random_height: 0.1
+  discrete_height: 0.02
+  horizontal_scale: 0.1
+  vertical_scale: 0.005
+  slope_threshold: 2.0
+commands:
+  num_commands: 3
+  still_proportion: 0.1
+  lin_vel_x:
+  - -1.0
+  - 1.6
+  lin_vel_y:
+  - -1.0
+  - 1.0
+  ang_vel_yaw:
+  - -1.0
+  - 1.0
+  resampling_time_s:
+  - 30.0
+  - 35.0
+  gait_frequency:
+  - 1.0
+  - 2.0
+  curriculum: false
+  update_rate: 0.1
+  lin_vel_levels: 10
+  ang_vel_levels: 10
+  lin_vel_x_resolution: 0.2
+  lin_vel_y_resolution: 0.1
+  ang_vel_resolution: 0.2
+  episode_length_toler: 0.1
+  lin_vel_x_toler: 0.4
+  lin_vel_y_toler: 0.2
+  ang_vel_yaw_toler: 0.2
+  speed_sampling:
+    mode_weights:
+    - 0.65
+    - 0.12
+    - 0.12
+    - 0.04
+    - 0.07
+    forward_high_fraction: 0.7
+    forward_high_width: 0.3
+    forward_perturb_fraction: 0.15
+    forward_lateral_max: 0.2
+    forward_yaw_max: 0.2
+    backward_range:
+    - -1.0
+    - -0.05
+    turn_yaw_magnitude:
+    - 0.2
+    - 1.0
+    lateral_magnitude:
+    - 0.1
+    - 1.0
+  gait_frequency_rule:
+    base: 1.0
+    forward_gain: 0.48
+    minimum: 1.0
+    maximum: 2.0
+normalization:
+  gravity: 1.0
+  lin_vel: 1.0
+  ang_vel: 1.0
+  dof_pos: 1.0
+  dof_vel: 0.1
+  filter_weight: 0.1
+  push_force: 0.1
+  push_torque: 0.5
+  clip_actions: 1.0
+  straight_lateral: 0.2
+  straight_heading: 1.0
+noise:
+  gravity:
+    range:
+    - 0.0
+    - 0.01
+    operation: additive
+    distribution: gaussian
+  lin_vel:
+    range:
+    - 0.0
+    - 0.05
+    operation: additive
+    distribution: gaussian
+  ang_vel:
+    range:
+    - 0.0
+    - 0.1
+    operation: additive
+    distribution: gaussian
+  dof_pos:
+    range:
+    - 0.0
+    - 0.01
+    operation: additive
+    distribution: gaussian
+  dof_vel:
+    range:
+    - 0.0
+    - 0.1
+    operation: additive
+    distribution: gaussian
+  height:
+    range:
+    - 0.0
+    - 0.02
+    operation: additive
+    distribution: gaussian
+randomization:
+  init_dof_pos:
+    range:
+    - 0.0
+    - 0.05
+    operation: additive
+    distribution: gaussian
+  init_base_pos_xy:
+    range:
+    - -1.0
+    - 1.0
+    operation: additive
+    distribution: uniform
+  init_base_lin_vel_xy:
+    range:
+    - 0.0
+    - 0.1
+    operation: additive
+    distribution: gaussian
+  kick_interval_s: 2.0
+  kick_lin_vel:
+    range:
+    - 0.0
+    - 0.1
+    operation: additive
+    distribution: gaussian
+  kick_ang_vel:
+    range:
+    - 0.0
+    - 0.02
+    operation: additive
+    distribution: gaussian
+  push_interval_s: 5.0
+  push_duration_s: 1.0
+  push_force:
+    range:
+    - 0.0
+    - 10.0
+    operation: additive
+    distribution: gaussian
+  push_torque:
+    range:
+    - 0.0
+    - 2.0
+    operation: additive
+    distribution: gaussian
+  dof_stiffness:
+    range:
+    - 0.95
+    - 1.05
+    operation: scaling
+    distribution: uniform
+  dof_damping:
+    range:
+    - 0.95
+    - 1.05
+    operation: scaling
+    distribution: uniform
+  dof_friction:
+    range:
+    - 0.0
+    - 2.0
+    operation: additive
+    distribution: uniform
+  friction:
+    range:
+    - 0.1
+    - 2.0
+    operation: additive
+    distribution: uniform
+  compliance:
+    range:
+    - 0.5
+    - 1.5
+    operation: additive
+    distribution: uniform
+  restitution:
+    range:
+    - 0.1
+    - 0.9
+    operation: additive
+    distribution: uniform
+  base_com:
+    range:
+    - -0.1
+    - 0.1
+    operation: additive
+    distribution: uniform
+  base_mass:
+    range:
+    - 0.8
+    - 1.2
+    operation: scaling
+    distribution: uniform
+  other_com:
+    range:
+    - -0.005
+    - 0.005
+    operation: additive
+    distribution: uniform
+  other_mass:
+    range:
+    - 0.98
+    - 1.02
+    operation: scaling
+    distribution: uniform
+rewards:
+  scales:
+    survival: 0.25
+    tracking_lin_vel_x: 2.0
+    tracking_lin_vel_y: 3.0
+    tracking_ang_vel: 2.0
+    base_height: -20.0
+    orientation: -5.0
+    torques: -0.0002
+    torque_tiredness: -0.01
+    power: -0.002
+    lin_vel_z: -2.0
+    ang_vel_xy: -0.2
+    dof_vel: -0.0001
+    dof_acc: -1.0e-07
+    root_acc: -0.0001
+    action_rate: 0.0
+    dof_pos_limits: -1.0
+    dof_vel_limits: -0.3
+    dof_vel_near_limit: -1.0
+    dof_vel_saturation: -8.0
+    torque_limits: -0.0
+    collision: -1.0
+    feet_slip: -0.1
+    feet_vel_z: -0.0
+    feet_yaw_diff: -1.0
+    feet_yaw_mean: -1.0
+    feet_roll: -0.1
+    feet_distance: -1.5
+    feet_swing: 1.0
+    torque_command_excess: -1.1
+    torque_command_saturation: -1.2
+    straight_track: -2.5
+    upper_action: -0.02
+    action_accel: 0.0
+    tracking_lin_vel_x_linear: 6.8
+    arm_leg_coordination: -8.0
+    straight_heading: -4.0
+    straight_yaw_rate_abs: -15.0
+    straight_lateral_speed_abs: -5.0
+    action_rate_physical: -1.0
+    action_accel_physical: -0.2
+    straight_stance_foot_heading: -4.5
+    torque_command_margin: -0.1
+  episode_length_s: 30.0
+  terminate_height: 0.45
+  terminate_vel: 50.0
+  terminate_contacts_on: []
+  penalize_contacts_on:
+  - Trunk
+  - H1
+  - H2
+  - AL
+  - AR
+  - Waist
+  - Hip
+  - Shank
+  - Ankle
+  only_positive_rewards: false
+  tracking_sigma: 0.25
+  base_height_target: 0.68
+  soft_dof_pos_limit: 1.0
+  soft_dof_vel_limit: 0.9
+  dof_vel_near_limit_ratio: 0.9
+  straight_track_quadratic_radius_m: 1.0
+  soft_torque_limit: 1.0
+  swing_period: 0.2
+  feet_distance_ref: 0.2
+  straight_stance_foot_heading_margin_rad: 0.1
+  torque_command_margin_ratio: 0.95
+  feet_distance_max_penalty: 0.2
+  feet_distance_signed: true
+  straight_stance_foot_heading_left_weight: 1.25
