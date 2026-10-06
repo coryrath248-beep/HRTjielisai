@@ -1,4 +1,6 @@
-# Booster Gym
+# Booster Gym（上游训练框架存档）
+
+此目录保留上游训练代码和历史 47→12 部署示例。当前 T1 试验请从[仓库首页](../README.md)进入；下面的上游说明不是本项目的实机操作步骤。
 
 ** **News** **: We now provide a new RL pipeline supporting K1 robot!
 - [Booster Train](https://github.com/BoosterRobotics/booster_train) trains a set of reinforcement learning tasks for Booster robots using [Isaac Lab](https://isaac-sim.github.io/IsaacLab/main/index.html).
