@@ -1,4 +1,4 @@
-"""Run the FootRoom actor in shadow mode over a read-only robot capture."""
+"""Run a T1 actor in shadow mode over a read-only robot capture."""
 
 import argparse
 import json
@@ -27,8 +27,8 @@ def main():
     parser.add_argument("--command", type=float, nargs=3, metavar=("VX", "VY", "YAW"),
                         help="fixed command; otherwise use commands recorded by probe --remote")
     parser.add_argument("--max-odom-age", type=float, default=0.1)
-    parser.add_argument("--config", type=Path, help="policy training config; defaults to FootRoom")
-    parser.add_argument("--model", type=Path, help="TorchScript actor; defaults to FootRoom")
+    parser.add_argument("--config", type=Path, help="policy training config; defaults to TorqueMild200")
+    parser.add_argument("--model", type=Path, help="TorchScript actor; defaults to TorqueMild200")
     parser.add_argument("--sha256", help="required SHA256 when --model is supplied")
     args = parser.parse_args()
     if bool(args.model) != bool(args.sha256):

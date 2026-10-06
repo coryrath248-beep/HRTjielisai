@@ -1,0 +1,30 @@
+{
+  "task": "T1FullBody16FH_TorqueMild_S43",
+  "policy": "logs/T1FullBody16FH_TorqueMild_S43_2026-10-06-15-22-21_1181652/nn/model_200.pth",
+  "command_vx": 1.6,
+  "command_vy": 0.0,
+  "command_yaw": 0.0,
+  "yaw_start_s": 0.0,
+  "yaw_end_s": null,
+  "reset_path_on_release": false,
+  "terrain_type": "trimesh",
+  "startup_ramp_s": 0.8,
+  "evaluation_seed": 42,
+  "survived_fraction": 0.984,
+  "falls_by_phase": {
+    "before_press": 0,
+    "while_pressed": 1,
+    "after_release": 0
+  },
+  "mean_vx_second_half": 1.492,
+  "mean_vy_second_half": 0.017,
+  "mean_yaw_rate_second_half": 0.005,
+  "mean_yaw_before_press": null,
+  "mean_yaw_while_pressed": 0.005,
+  "mean_yaw_after_release": null,
+  "mean_torque_saturation_second_half": 0.16,
+  "mean_torque_saturation_first_2s": 0.188,
+  "mean_lateral_displacement_survivors": -0.011,
+  "mean_absolute_lateral_displacement_survivors": 0.136,
+  "p90_absolute_lateral_displacement_survivors": 0.258
+}

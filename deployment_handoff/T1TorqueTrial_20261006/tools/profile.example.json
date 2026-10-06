@@ -1,0 +1,14 @@
+{
+  "robot_id": "fill_on_site",
+  "joint_order_verified": false,
+  "ankle_mapping_verified": false,
+  "imu_frame_verified": false,
+  "odometry_frame_verified": false,
+  "yaw_deadband_rad_s": 0.06,
+  "joint_state_mapping": [
+    "serial:0", "serial:1", "serial:2", "serial:3", "serial:4", "serial:5",
+    "serial:6", "serial:7", "serial:8", "serial:9", "serial:10", "serial:11",
+    "serial:12", "serial:13", "serial:14", "serial:15", "serial:16",
+    "serial:17", "serial:18", "serial:19", "serial:20", "serial:21", "serial:22"
+  ]
+}

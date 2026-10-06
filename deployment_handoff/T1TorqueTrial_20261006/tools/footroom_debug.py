@@ -1,4 +1,4 @@
-"""FootRoom 1200 policy contract and read-only shadow inference.
+"""T1 TorqueMild/Firm policy contract and read-only shadow inference.
 
 No SDK publisher is imported here. The adapter produces diagnostic targets only;
 the robot's joint/ankle calibration must be checked before any actuator uses them.
@@ -15,11 +15,11 @@ import torch
 import yaml
 
 
-ROOT = Path(__file__).resolve().parents[2]
-MILESTONE = ROOT / "trained_policies" / "T1FullBody16FH_FootRoom_S43_model1200_20261006"
-CONFIG = MILESTONE / "T1FullBody16FH_FootRoom_S43.yaml"
-MODEL = MILESTONE / "model_1200.pt"
-MODEL_SHA256 = "d6756419268ba789abf8c2fcbedd2bb48e1eef1f66f36d7ecd466c4258f2d05e"
+ROOT = Path(__file__).resolve().parents[1]
+MILESTONE = ROOT / "models" / "mild200"
+CONFIG = MILESTONE / "train.yaml"
+MODEL = MILESTONE / "model_200.pt"
+MODEL_SHA256 = "f3fe8ddd3d66e4441b4840448bd0eec6954cd7749054a204966f6895aa9bba57"
 
 # Matches the 23-DoF T1 SDK JointIndex order. SDK ankle entries refer to cranks;
 # their relationship to URDF ankle pitch/roll must be checked on each robot.
@@ -107,7 +107,7 @@ class FootRoomShadow:
         with open(config_path, encoding="utf-8") as stream:
             cfg = yaml.safe_load(stream)
         if cfg["env"]["num_observations"] != 80 or cfg["env"]["num_actions"] != 21:
-            raise ValueError("expected FootRoom 80-observation / 21-action config")
+            raise ValueError("expected 80-observation / 21-action config")
         self.cfg = cfg
         self.policy_dt = float(cfg["sim"]["dt"] * cfg["control"]["decimation"])
         self.action_names = tuple(cfg["control"]["action_joint_names"])
