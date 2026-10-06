@@ -44,6 +44,12 @@ python deployment_handoff/T1FootRoom_S43_20261006/replay.py /tmp/t1_probe.jsonl 
 
 原手柄服务本身还有绝对值 0.1 的输入阈值，因此从 `probe.py --remote` 读到的实际微调起点通常是 0.1 rad/s；影子推理的 0.06 阈值负责防止更小的输入误触直行／转向切换。现场要核对摇杆正负方向，不能由屏幕上的命令符号推断机器人会往哪侧转。
 
+## 跌倒后的起身接口
+
+Booster SDK 的 `B1LocoClient.GetUp()` 对 T1 提供基础起身 RPC；官方示例先切 `kPrepare`，调用 `GetUp()`，再切 `kWalking`。较新的 `GetUpWithMode` 需要固件不低于 v1.4.0.7。仓库所附旧 SDK 对 `GetUp()` 的注释是“从仰卧起身”，不能据此假定俯卧或侧躺都能恢复。`robot_code/Booster_T1_3v3/` 的 RoboCup 示例含跌倒恢复状态机，但旧 `train_kit/deploy/deploy.py` 没有把起身接入 RL 控制循环。
+
+现场只读阶段先查询机型、固件版本、当前模式和恢复状态。受扶持的功能测试必须先停止低层关节发布、确认退出 `kCustom` 并核对 SDK 返回码；先做人工确认后单次调用，不让未经验证的自动恢复在跌倒后继续输出行走动作。起身完成后仍应重新初始化行走策略的相位、动作历史和直线参考，再逐级恢复速度。当前包没有自动起身或实机 RL 复走功能。官方接口文档：https://docs.booster.tech/zh-CN/docs/developer-guide/cpp/rpc/motion/ 。
+
 ## 实机动作前仍需核对
 
 SDK 的踝部串联索引是 `CrankUp/CrankDown`，训练 URDF 是 `Ankle_Pitch/Ankle_Roll`。必须确认状态换算及命令换算，不能把影子推理的训练关节目标直接送给串联电机。还需确认机器人确实为 23 自由度版本、上肢／腰低层控制可用、PD 增益和力矩限值、控制频率与延迟、急停及回退流程。所有这些依赖现场机器；本目录保留了明确的核对位置，不预填“已验证”。
