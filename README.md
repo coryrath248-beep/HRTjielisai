@@ -1,15 +1,5 @@
-# HRT T1 行走策略
+# HRT T1 步态项目
 
-## 现场只看这一份
+**当前入口：[下一次现场调试与 10 月 7 日复盘](field_next/README.md)。**这里列清当前程序、未完成项、目标状态机和现场验收方式。10 月 6 日的 TorqueTrial 包是旧的只读诊断材料，不能用来部署 S46。
 
-[当前试验包：T1TorqueTrial_20261006](deployment_handoff/T1TorqueTrial_20261006/README.md) · [下载 ZIP](deployment_handoff/T1TorqueTrial_20261006.zip)
-
-包内有 TorqueMild 200 和 TorqueFirm 800 的模型、配置、仿真结果及视频。**它是只读采集和影子推理包，不是可驱动机器人行走的程序。**确认机器人和原厂控制已恢复正常后，现场只需采集状态并把日志带回；不需要为此切换 `kCustom`、`kDamping`，也不需要替换原机 `.pt`。
-
-2026-10-06 的现场新增了 `deploy_torque.py`、`joint_mapping_test.py`；它们**不属于此仓库交付包**。19:26 的模式调用返回 100，不能据此认定已进入 `kCustom`；18:41 的逐关节日志也未证明映射通过。查明原因前不要用这些脚本再试模式或电机命令。
-
-要让新模型真正行走，还缺经过现场核对的 **80 维观察 → 21 动作 → 23 路电机**适配与连续发令控制器。旧 `train_kit/deploy/` 是 47 维、12 动作的历史程序，只作原机软件追溯，不能直接加载新权重。
-
-## 历史资料
-
-[`T1FootRoom_S43_20261006`](deployment_handoff/T1FootRoom_S43_20261006/) 和 [`T1PathStride_seed42_20261005`](deployment_handoff/T1PathStride_seed42_20261005/) 是先前交接记录；`trained_policies/` 是仿真候选档案。它们都不是本次现场操作入口。`train_kit/` 和 `robot_code/` 保留上游代码供开发对照。
+`trained_policies/` 保留训练候选和评估视频；`deployment_handoff/`、`train_kit/`、`robot_code/` 保留历史交接与上游对照。进入机器人之前，先从当前入口核对版本和模型哈希，不从历史 README 选择程序。
