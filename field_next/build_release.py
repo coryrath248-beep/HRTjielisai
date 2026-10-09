@@ -10,7 +10,7 @@ import zipfile
 
 EXCLUDED_PARTS = {".git", ".venv", "__pycache__", "logs"}
 EXCLUDED_SUFFIXES = {".pyc", ".log"}
-MODEL_SHA256 = "80af933e2034601a51e3ff33e151df973d0b3540f531c2110984957632f22639"
+MODEL_SHA256 = "75e5772c27f61b857eb387dfaf2eaf50159c884ee3ad0513921afb2ca2f445f6"
 
 
 def digest(data: bytes) -> str:
@@ -20,6 +20,8 @@ def digest(data: bytes) -> str:
 def needed_for_t1_s46(path: Path, source: Path) -> bool:
     parts = path.relative_to(source).parts
     if EXCLUDED_PARTS.intersection(parts) or path.suffix in EXCLUDED_SUFFIXES:
+        return False
+    if path.name == "model_2200.pt":
         return False
     if parts[0] == "docs":
         return False
@@ -34,12 +36,12 @@ def needed_for_t1_s46(path: Path, source: Path) -> bool:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, required=True)
-    parser.add_argument("--output", type=Path, default=Path(__file__).with_name("S46_OFFLINE_CANDIDATE_20261008.zip"))
+    parser.add_argument("--output", type=Path, default=Path(__file__).with_name("T1_FIELD_READY_CANDIDATE_20261009.zip"))
     args = parser.parse_args()
     source = args.source.resolve(strict=True)
-    model = source / "tasks" / "hrt_s46" / "models" / "model_2200.pt"
+    model = source / "tasks" / "hrt_s46" / "models" / "model.pt"
     if digest(model.read_bytes()) != MODEL_SHA256:
-        raise SystemExit("S46 model hash mismatch")
+        raise SystemExit("field model hash mismatch")
     if args.output.resolve() == source or source in args.output.resolve().parents:
         raise SystemExit("Output must be outside source directory")
     files = [
@@ -55,7 +57,7 @@ def main() -> None:
             name = "booster_deploy_s46/" + path.relative_to(source).as_posix()
             archive.writestr(name, content)
             manifest.append(f"{digest(content)}  {name}")
-        for filename in ("README.md", "REVIEW_20261008.md"):
+        for filename in ("README.md",):
             content = Path(__file__).with_name(filename).read_bytes()
             name = "FIELD_NEXT/" + filename
             archive.writestr(name, content)
