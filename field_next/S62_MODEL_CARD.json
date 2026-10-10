@@ -1,0 +1,19 @@
+{
+  "name": "T1FullBody16FH_ClearanceHoldSpeed_S62_model1000",
+  "source_checkpoint_sha256": "45126e492026755a21a6b4f32cc393f083b217e0043f1c7dd30676206e5f3eb9",
+  "torchscript_sha256": "6cf343cd70a59156ee1e25655754acda0a067b62907b7c1b211e3763fd8f066f",
+  "interface": {"observations": 80, "actions": 21, "robot_joints": 23, "policy_hz": 50},
+  "straight_60s": {
+    "command_mps": 1.6,
+    "actual_mps": 1.382,
+    "lateral_drift_m": 0.014,
+    "torque_request_saturation_fraction": 0.052,
+    "joint_velocity_limit_fraction": 0.0,
+    "stride_m": 0.794,
+    "cadence_hz": 1.734,
+    "swing_edge_clearance_m": 0.0132
+  },
+  "dynamic_sequences": "31/32",
+  "zero_stance_pushes": "128/128",
+  "turn_actual_yaw_rps": {"-1.0": -0.842, "-0.4": -0.224, "+0.4": 0.133, "+1.0": 0.777}
+}
